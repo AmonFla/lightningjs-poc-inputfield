@@ -20,7 +20,7 @@ export default class App extends Lightning.Component {
     }
     return {
       rect: true,
-      color: 0xff000000,
+      color: 0xff142a7c,
       w: 1920,
       h: 1080,
       MyInputField: { type: InputField, description: 'hola' },

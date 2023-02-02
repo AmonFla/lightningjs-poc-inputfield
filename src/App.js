@@ -20,8 +20,17 @@ export default class App extends Lightning.Component {
     }
     return {
       rect: true,
+      color: 0xff000000,
+      w: 1920,
+      h: 1080,
       MyInputField: { type: InputField, description: 'hola' },
-      MyKeyboard: { type: Keyboard, config: myKeyboardConfig, currentLayout: 'ABC' },
+      MyKeyboard: {
+        type: Keyboard,
+        config: myKeyboardConfig,
+        currentLayout: 'ABC',
+        y: 200,
+        signals: { onInputChanged: true },
+      },
     }
   }
 

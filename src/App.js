@@ -1,17 +1,32 @@
 import { Lightning } from '@lightningjs/sdk'
-import { InputField } from '@lightningjs/ui'
-import { Keyboard, KEYBOARD_FORMATS } from '@lightningjs/ui-components'
+import { InputField, Keyboard, Key } from '@lightningjs/ui'
 
 export default class App extends Lightning.Component {
   static _template() {
-    return {
-      MyKeyboard: {
-        type: Keyboard,
-        formats: KEYBOARD_FORMATS.qwerty,
+    const myKeyboardConfig = {
+      layouts: {
+        ABC: [
+          ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+          ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'],
+          ['u', 'v', 'w', 'x', 'y', 'z'],
+        ],
+        123: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']],
       },
-      InputField: {
-        type: InputField,
+      buttonTypes: {
+        default: {
+          type: Key,
+        },
       },
     }
+    return {
+      rect: true,
+      MyInputField: { type: InputField, description: 'hola' },
+      MyKeyboard: { type: Keyboard, config: myKeyboardConfig, currentLayout: 'ABC' },
+    }
+  }
+
+  _init() {
+    const inputField = this.tag('InputField')
+    this.tag('MyKeyboard').inputField(inputField)
   }
 }

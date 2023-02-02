@@ -1,0 +1,6 @@
+{
+  "name": "POC InputField",
+  "identifier": "com.domain.app.POCInputField",
+  "version": "1.0.0",
+  "icon": "./static/icon.png"
+}

@@ -33,9 +33,13 @@ export default class App extends Lightning.Component {
     }
   }
 
-  _init() {
+  _setup() {
     const inputField = this.tag('InputField')
     this.tag('MyKeyboard').inputField(inputField)
+  }
+
+  _getFocused() {
+    return this.tag('Keyboard')
   }
 
   onInputChanged(inputData) {
